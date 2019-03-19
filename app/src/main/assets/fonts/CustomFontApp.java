@@ -1,6 +1,8 @@
-package com.example.diapp;
+package fonts;
 
 import android.app.Application;
+
+
 
 public class CustomFontApp extends Application {
     @Override
