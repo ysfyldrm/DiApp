@@ -10,48 +10,73 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 public EditText degisimSütText,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
-public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv;
+public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        degisimSütText=(EditText) findViewById(R.id.degisimSut);
-        degisimEtText=(EditText) findViewById(R.id.degisimEt);
-        degisimEygText=(EditText) findViewById(R.id.degisimEYG);
-        degisimSebzeText=(EditText) findViewById(R.id.degisimSebze);
-        degisimMeyveText=(EditText) findViewById(R.id.degisimMeyve);
-        degisimYagText=(EditText) findViewById(R.id.degisimYag);
-        degisimBaklagilText=(EditText) findViewById(R.id.degisimBaklagil);
+        degisimSütText      =(EditText) findViewById(R.id.degisimSut);
+        degisimEtText       =(EditText) findViewById(R.id.degisimEt);
+        degisimEygText      =(EditText) findViewById(R.id.degisimEYG);
+        degisimSebzeText    =(EditText) findViewById(R.id.degisimSebze);
+        degisimMeyveText    =(EditText) findViewById(R.id.degisimMeyve);
+        degisimYagText      =(EditText) findViewById(R.id.degisimYag);
+        degisimBaklagilText =(EditText) findViewById(R.id.degisimBaklagil);
 
-        sutCHOv=(TextView) findViewById(R.id.sütCHO);
-        sutProv=(TextView) findViewById(R.id.sütPRO);
-        sutYagv=(TextView) findViewById(R.id.sütYAG);
+        sutCHOv =(TextView) findViewById(R.id.sütCHO);
+        sutProv =(TextView) findViewById(R.id.sütPRO);
+        sutYagv =(TextView) findViewById(R.id.sütYAG);
 
-        etCHOv=(TextView) findViewById(R.id.etCHO);
-        etProv=(TextView) findViewById(R.id.etPRO);
-        etYagv=(TextView) findViewById(R.id.etYAG);
+        etCHOv =(TextView) findViewById(R.id.etCHO);
+        etProv =(TextView) findViewById(R.id.etPRO);
+        etYagv =(TextView) findViewById(R.id.etYAG);
 
-        eygCHOv=(TextView) findViewById(R.id.eygCHO);
-        eygProv=(TextView) findViewById(R.id.eygPRO);
-        eygYagv=(TextView) findViewById(R.id.eygYAG);
+        eygCHOv =(TextView) findViewById(R.id.eygCHO);
+        eygProv =(TextView) findViewById(R.id.eygPRO);
+        eygYagv =(TextView) findViewById(R.id.eygYAG);
 
-        sebzeCHOv=(TextView) findViewById(R.id.sebzeCHO);
-        sebzeProv=(TextView) findViewById(R.id.sebzePRO);
-        sebzeYagv=(TextView) findViewById(R.id.sebzeYAG);
+        sebzeCHOv =(TextView) findViewById(R.id.sebzeCHO);
+        sebzeProv =(TextView) findViewById(R.id.sebzePRO);
+        sebzeYagv =(TextView) findViewById(R.id.sebzeYAG);
 
-        meyveCHOv=(TextView) findViewById(R.id.meyveCHO);
-        meyveProv=(TextView) findViewById(R.id.meyvePRO);
-        meyveYagv=(TextView) findViewById(R.id.meyveYAG);
+        meyveCHOv =(TextView) findViewById(R.id.meyveCHO);
+        meyveProv =(TextView) findViewById(R.id.meyvePRO);
+        meyveYagv =(TextView) findViewById(R.id.meyveYAG);
 
-        yagCHOv=(TextView) findViewById(R.id.yagCHO);
-        yagProv=(TextView) findViewById(R.id.yagPRO);
-        yagYagv=(TextView) findViewById(R.id.yagYAG);
+        yagCHOv =(TextView) findViewById(R.id.yagCHO);
+        yagProv =(TextView) findViewById(R.id.yagPRO);
+        yagYagv =(TextView) findViewById(R.id.yagYAG);
 
-        baklagilCHOv=(TextView) findViewById(R.id.baklagilCHO);
-        baklagilProv=(TextView) findViewById(R.id.baklagilPRO);
-        baklagilYagv=(TextView) findViewById(R.id.baklagilYAG);
+        baklagilCHOv =(TextView) findViewById(R.id.baklagilCHO);
+        baklagilProv =(TextView) findViewById(R.id.baklagilPRO);
+        baklagilYagv =(TextView) findViewById(R.id.baklagilYAG);
 
+        toplamCHOv =(TextView) findViewById(R.id.toplamCHO);
+        toplamPROv =(TextView) findViewById(R.id.toplamPRO);
+        toplamYAGv =(TextView) findViewById(R.id.toplamYAG);
+
+        int sutCHOtop =Integer.parseInt(sutCHOv.getText().toString());
+        int sutPROtop =Integer.parseInt(sutProv.getText().toString());
+        int sutYAGtop =Integer.parseInt(sutYagv.getText().toString());
+        int etPROtop  =Integer.parseInt(etProv.getText().toString());
+        int etYAGtop  =Integer.parseInt(etYagv.getText().toString());
+        int eygCHOtop =Integer.parseInt(eygCHOv.getText().toString());
+        int eygPROtop =Integer.parseInt(eygProv.getText().toString());
+        int sbzCHOtop =Integer.parseInt(sebzeCHOv.getText().toString());
+        int sbzPROtop =Integer.parseInt(sebzeProv.getText().toString());
+        int myvCHOtop =Integer.parseInt(meyveCHOv.getText().toString());
+        int yagYAGtop =Integer.parseInt(yagYagv.getText().toString());
+        int bklCHOtop =Integer.parseInt(baklagilCHOv.getText().toString());
+        int bklPROtop =Integer.parseInt(baklagilProv.getText().toString());
+
+        int topCHO = sutCHOtop+eygCHOtop+sbzCHOtop+myvCHOtop+bklCHOtop;
+        int topPRO = sutPROtop+etPROtop+eygPROtop+sbzPROtop+bklPROtop;
+        int topYAG = sutYAGtop+etYAGtop+yagYAGtop;
+
+        toplamCHOv.setText(""+topCHO);
+        toplamPROv.setText(""+topPRO);
+        toplamYAGv.setText(""+topYAG);
 
         degisimSütText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -255,7 +280,7 @@ catch(NumberFormatException e)
                 try {
                     int count=s.length();
                     int re=1;
-                    String value= degisimSütText.getText().toString();
+                    String value= degisimYagText.getText().toString();
                     int finalValue=Integer.parseInt(value);
                     if(count>0){
                         yagYagv.setText(""+finalValue*5);
@@ -289,7 +314,7 @@ catch(NumberFormatException e)
                 try {
                     int count=s.length();
                     int re=1;
-                    String value= degisimSütText.getText().toString();
+                    String value= degisimBaklagilText.getText().toString();
                     int finalValue=Integer.parseInt(value);
                     if(count>0){
                         baklagilCHOv.setText(""+finalValue*15);
