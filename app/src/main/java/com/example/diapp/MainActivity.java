@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 public EditText degisimSütText,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
-public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv;
+public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,7 @@ public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,
         toplamCHOv =(TextView) findViewById(R.id.toplamCHO);
         toplamPROv =(TextView) findViewById(R.id.toplamPRO);
         toplamYAGv =(TextView) findViewById(R.id.toplamYAG);
+        textToplamv=(TextView) findViewById(R.id.textToplam);
 
         Thread t=new Thread(){
 
@@ -86,15 +87,16 @@ public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,
                                 final int bklCHOtop = Integer.parseInt(baklagilCHOv.getText().toString());
                                 final int bklPROtop = Integer.parseInt(baklagilProv.getText().toString());
 
-
-
                                 final int topCHO = sutCHOtop + eygCHOtop + sbzCHOtop + myvCHOtop + bklCHOtop;
                                 final int topPRO = sutPROtop + etPROtop + eygPROtop + sbzPROtop + bklPROtop;
                                 final int topYAG = sutYAGtop + etYAGtop + yagYAGtop;
 
+                                final int topTOPLAM = topCHO + topPRO + topYAG;
+
                                 toplamCHOv.setText("" + topCHO);
                                 toplamPROv.setText("" + topPRO);
                                 toplamYAGv.setText("" + topYAG);
+                                textToplamv.setText("TOPLAM : " + topTOPLAM + " kcal");
                             }
                         });
 
