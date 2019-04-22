@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
 public EditText degisimSütText,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
 public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv;
     @Override
@@ -56,27 +57,59 @@ public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,
         toplamPROv =(TextView) findViewById(R.id.toplamPRO);
         toplamYAGv =(TextView) findViewById(R.id.toplamYAG);
 
-        int sutCHOtop =Integer.parseInt(sutCHOv.getText().toString());
-        int sutPROtop =Integer.parseInt(sutProv.getText().toString());
-        int sutYAGtop =Integer.parseInt(sutYagv.getText().toString());
-        int etPROtop  =Integer.parseInt(etProv.getText().toString());
-        int etYAGtop  =Integer.parseInt(etYagv.getText().toString());
-        int eygCHOtop =Integer.parseInt(eygCHOv.getText().toString());
-        int eygPROtop =Integer.parseInt(eygProv.getText().toString());
-        int sbzCHOtop =Integer.parseInt(sebzeCHOv.getText().toString());
-        int sbzPROtop =Integer.parseInt(sebzeProv.getText().toString());
-        int myvCHOtop =Integer.parseInt(meyveCHOv.getText().toString());
-        int yagYAGtop =Integer.parseInt(yagYagv.getText().toString());
-        int bklCHOtop =Integer.parseInt(baklagilCHOv.getText().toString());
-        int bklPROtop =Integer.parseInt(baklagilProv.getText().toString());
+        Thread t=new Thread(){
 
-        int topCHO = sutCHOtop+eygCHOtop+sbzCHOtop+myvCHOtop+bklCHOtop;
-        int topPRO = sutPROtop+etPROtop+eygPROtop+sbzPROtop+bklPROtop;
-        int topYAG = sutYAGtop+etYAGtop+yagYAGtop;
 
-        toplamCHOv.setText(""+topCHO);
-        toplamPROv.setText(""+topPRO);
-        toplamYAGv.setText(""+topYAG);
+            @Override
+            public void run(){
+
+                while(!isInterrupted()){
+
+                    try {
+                        Thread.sleep(500);  //1000ms = 1 sec
+
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                final int sutCHOtop = Integer.parseInt(sutCHOv.getText().toString());
+                                final int sutPROtop = Integer.parseInt(sutProv.getText().toString());
+                                final int sutYAGtop = Integer.parseInt(sutYagv.getText().toString());
+                                final int etPROtop = Integer.parseInt(etProv.getText().toString());
+                                final int etYAGtop = Integer.parseInt(etYagv.getText().toString());
+                                final int eygCHOtop = Integer.parseInt(eygCHOv.getText().toString());
+                                final int eygPROtop = Integer.parseInt(eygProv.getText().toString());
+                                final int sbzCHOtop = Integer.parseInt(sebzeCHOv.getText().toString());
+                                final int sbzPROtop = Integer.parseInt(sebzeProv.getText().toString());
+                                final int myvCHOtop = Integer.parseInt(meyveCHOv.getText().toString());
+                                final int yagYAGtop = Integer.parseInt(yagYagv.getText().toString());
+                                final int bklCHOtop = Integer.parseInt(baklagilCHOv.getText().toString());
+                                final int bklPROtop = Integer.parseInt(baklagilProv.getText().toString());
+
+
+
+                                final int topCHO = sutCHOtop + eygCHOtop + sbzCHOtop + myvCHOtop + bklCHOtop;
+                                final int topPRO = sutPROtop + etPROtop + eygPROtop + sbzPROtop + bklPROtop;
+                                final int topYAG = sutYAGtop + etYAGtop + yagYAGtop;
+
+                                toplamCHOv.setText("" + topCHO);
+                                toplamPROv.setText("" + topPRO);
+                                toplamYAGv.setText("" + topYAG);
+                            }
+                        });
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        };
+
+        t.start();
+
+
+
 
         degisimSütText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -86,33 +119,31 @@ public TextView toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    count = s.length();
+                    int re=1;
+                    String value= degisimSütText.getText().toString();
+                    int finalValue=Integer.parseInt(value);
+                    if(count>0){
+                        sutCHOv.setText(""+finalValue*9);
+                        sutProv.setText(""+finalValue*6);
+                        sutYagv.setText(""+finalValue*6);
 
+                    }
+                    else { sutCHOv.setText(""+re*9);
+                        sutProv.setText(""+re*6);
+                        sutYagv.setText(""+re*6);
+                    }
+                }
+                catch(NumberFormatException e) {
+                    sutCHOv.setText("" + 9);
+                    sutProv.setText("" + 6);
+                    sutYagv.setText("" + 6);
+                }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
-try {
-    int count=s.length();
-    int re=1;
-    String value= degisimSütText.getText().toString();
-    int finalValue=Integer.parseInt(value);
-    if(count>0){
-        sutCHOv.setText(""+finalValue*9);
-        sutProv.setText(""+finalValue*6);
-        sutYagv.setText(""+finalValue*6);
-    }
-    else {
-        sutCHOv.setText(""+re*9);
-        sutProv.setText(""+re*6);
-        sutYagv.setText(""+re*6);
-    }
-}
-catch(NumberFormatException e)
-{
-    sutCHOv.setText(""+9);
-    sutProv.setText(""+6);
-    sutYagv.setText(""+6);
-}
+
             }
         });
 
