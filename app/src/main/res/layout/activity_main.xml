@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="?android:attr/actionBarTheme"
     tools:context=".MainActivity">
 
 
@@ -14,6 +15,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:text="KALORİ ="
+        android:textAlignment="textEnd"
+        android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/toplamCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimBaklagil" />
 
@@ -24,6 +27,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="CHO / Protein / Yağ"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +38,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="35dp"
         android:text="Değişim"
+        android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/textChoProYag"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -376,9 +381,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/sütCHO"
         app:layout_constraintTop_toBottomOf="@+id/textDegisim" />
 
@@ -389,9 +394,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/etCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimSut" />
 
@@ -402,9 +407,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/eygCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimEt" />
 
@@ -415,9 +420,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/sebzeCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimEYG" />
 
@@ -428,9 +433,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/meyveCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimSebze" />
 
@@ -441,9 +446,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/yagCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimMeyve" />
 
@@ -454,9 +459,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
-        android:padding="7dp"
-        android:maxLength="3"
         android:inputType="number"
+        android:maxLength="3"
+        android:padding="7dp"
         app:layout_constraintEnd_toStartOf="@+id/baklagilCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimYag" />
 
@@ -481,5 +486,13 @@
         android:text="-"
         app:layout_constraintEnd_toStartOf="@+id/etPRO"
         app:layout_constraintTop_toBottomOf="@+id/sütCHO" />
+
+    <FrameLayout
+        android:layout_width="385dp"
+        android:layout_height="510dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

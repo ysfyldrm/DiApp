@@ -11,11 +11,12 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 public EditText degisimSütText,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
-public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv;
+public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv,textSüt,textEt,textEYG,textSebze,textMeyve,textYag,textBaklagil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         degisimSütText      =(EditText) findViewById(R.id.degisimSut);
         degisimEtText       =(EditText) findViewById(R.id.degisimEt);
