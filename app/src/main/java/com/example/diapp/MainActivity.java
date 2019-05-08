@@ -1,22 +1,84 @@
 package com.example.diapp;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+
 
 public class MainActivity extends AppCompatActivity {
 
-public EditText degisimSütText,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
-public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv,textSüt,textEt,textEYG,textSebze,textMeyve,textYag,textBaklagil;
+    public void Clear(){
+        degisimSütText.setText("");
+        degisimEtText.setText("");
+        degisimEygText.setText("");
+        degisimSebzeText.setText("");
+        degisimMeyveText.setText("");
+        degisimYagText.setText("");
+        degisimBaklagilText.setText("");
+
+        btnHesapla.setEnabled(true);
+    }
+public Button btnHesapla,btnTemizle;
+public EditText degisimSütText,toplamTextv,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
+public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv,textSüt,textEt,textEYG,textSebze,textMeyve,textYag,textBaklagil;
+private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        AdView mAdView = new AdView(this);
+        mAdView.setAdSize(AdSize.SMART_BANNER);
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("8BA52F568BA95A6FD976D14C39F73AA7").build();
+        mAdView.loadAd(adRequest);
+
+        btnHesapla = (Button) findViewById(R.id.buttonHesapla);
+        btnTemizle = (Button) findViewById(R.id.buttonTemizle);
+
+        btnHesapla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+
+                        builder.setCancelable(true);
+                        builder.setTitle("HESAPLAMA SONUÇLARI");
+                        builder.setMessage(toplamTextv.getText());
+
+                        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                btnHesapla.setEnabled(false);
+                            }
+                        });
+                        builder.show();
+                }
+
+            }
+        );
+
+        btnTemizle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Clear();
+            }
+        });
 
         degisimSütText      =(EditText) findViewById(R.id.degisimSut);
         degisimEtText       =(EditText) findViewById(R.id.degisimEt);
@@ -25,6 +87,7 @@ public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sut
         degisimMeyveText    =(EditText) findViewById(R.id.degisimMeyve);
         degisimYagText      =(EditText) findViewById(R.id.degisimYag);
         degisimBaklagilText =(EditText) findViewById(R.id.degisimBaklagil);
+        toplamTextv         =(EditText) findViewById(R.id.toplamText);
 
         sutCHOv =(TextView) findViewById(R.id.sütCHO);
         sutProv =(TextView) findViewById(R.id.sütPRO);
@@ -54,10 +117,6 @@ public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sut
         baklagilProv =(TextView) findViewById(R.id.baklagilPRO);
         baklagilYagv =(TextView) findViewById(R.id.baklagilYAG);
 
-        toplamCHOv =(TextView) findViewById(R.id.toplamCHO);
-        toplamPROv =(TextView) findViewById(R.id.toplamPRO);
-        toplamYAGv =(TextView) findViewById(R.id.toplamYAG);
-        textToplamv=(TextView) findViewById(R.id.textToplam);
 
         Thread t=new Thread(){
 
@@ -94,10 +153,10 @@ public TextView textToplamv,toplamCHOv,toplamPROv,toplamYAGv,sutCHOv,sutProv,sut
 
                                 final int topTOPLAM = topCHO + topPRO + topYAG;
 
-                                toplamCHOv.setText("" + topCHO);
-                                toplamPROv.setText("" + topPRO);
-                                toplamYAGv.setText("" + topYAG);
-                                textToplamv.setText("TOPLAM : " + topTOPLAM + " kcal");
+                                toplamTextv.setText("KARBONHİDRAT = " + topCHO + " kcal" + "\n" + "\n" +
+                                        "PROTEİN = " + topPRO + " kcal" + "\n" + "\n" +
+                                        "YAĞ = " + topYAG + " kcal" + "\n" + "\n" +
+                                        "TOPLAM KALORİ = " + topTOPLAM + " kcal");
                             }
                         });
 

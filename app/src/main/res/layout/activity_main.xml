@@ -4,21 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:theme="?android:attr/actionBarTheme"
     tools:context=".MainActivity">
 
-
     <TextView
-        android:id="@+id/textKalori"
-        android:layout_width="87dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="35dp"
-        android:text="KALORİ ="
-        android:textAlignment="textEnd"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/toplamCHO"
-        app:layout_constraintTop_toBottomOf="@+id/degisimBaklagil" />
+    android:id="@+id/topCHOtxt"
+    android:textSize="12sp"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:textStyle="bold"
+    android:visibility="visible" />
 
     <TextView
         android:id="@+id/textChoProYag"
@@ -27,7 +23,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="CHO / Protein / Yağ"
-        android:textSize="12sp"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +37,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="35dp"
         android:text="Değişim"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textChoProYag"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,6 +51,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textDegisim"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,9 +62,12 @@
         android:id="@+id/sebzePRO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="1"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/sebzeYAG"
         app:layout_constraintTop_toBottomOf="@+id/eygPRO" />
 
@@ -67,9 +75,12 @@
         android:id="@+id/baklagilPRO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="5"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/baklagilYAG"
         app:layout_constraintTop_toBottomOf="@+id/yagPRO" />
 
@@ -77,9 +88,12 @@
         android:id="@+id/yagPRO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/yagYAG"
         app:layout_constraintTop_toBottomOf="@+id/meyvePRO" />
 
@@ -87,9 +101,12 @@
         android:id="@+id/meyvePRO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/meyveYAG"
         app:layout_constraintTop_toBottomOf="@+id/sebzePRO" />
 
@@ -101,6 +118,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:text="6"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etPRO"
         app:layout_constraintEnd_toStartOf="@+id/sütYAG"
         app:layout_constraintTop_toBottomOf="@+id/textChoProYag" />
@@ -109,9 +129,12 @@
         android:id="@+id/sebzeYAG"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eygYAG" />
 
@@ -119,9 +142,12 @@
         android:id="@+id/baklagilYAG"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yagYAG" />
 
@@ -129,9 +155,12 @@
         android:id="@+id/yagYAG"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="5"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meyveYAG" />
 
@@ -139,9 +168,12 @@
         android:id="@+id/meyveYAG"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sebzeYAG" />
 
@@ -153,6 +185,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:text="6"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etYAG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textChoProYag" />
@@ -161,9 +196,12 @@
         android:id="@+id/etYAG"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="5"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sütYAG" />
 
@@ -171,9 +209,12 @@
         android:id="@+id/eygYAG"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etYAG" />
 
@@ -181,9 +222,12 @@
         android:id="@+id/etPRO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="6"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/etYAG"
         app:layout_constraintTop_toBottomOf="@+id/sütPRO" />
 
@@ -191,60 +235,66 @@
         android:id="@+id/eygPRO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="2"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/eygYAG"
         app:layout_constraintTop_toBottomOf="@+id/etPRO" />
+
+    <TextView
+        android:id="@+id/sütCHO"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="9"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etCHO"
+        app:layout_constraintEnd_toStartOf="@+id/sütPRO"
+        app:layout_constraintTop_toBottomOf="@+id/textChoProYag" />
+
+    <TextView
+        android:id="@+id/etCHO"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/etPRO"
+        app:layout_constraintTop_toBottomOf="@+id/sütCHO" />
 
     <TextView
         android:id="@+id/baklagilCHO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="15"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/baklagilPRO"
         app:layout_constraintTop_toBottomOf="@+id/yagCHO" />
-
-    <TextView
-        android:id="@+id/toplamCHO"
-        android:layout_width="38dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/toplamPRO"
-        app:layout_constraintTop_toBottomOf="@+id/baklagilCHO"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/toplamPRO"
-        android:layout_width="38dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/toplamYAG"
-        app:layout_constraintTop_toBottomOf="@+id/baklagilPRO" />
-
-    <TextView
-        android:id="@+id/toplamYAG"
-        android:layout_width="38dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/baklagilYAG" />
 
     <TextView
         android:id="@+id/meyveCHO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="15"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/meyvePRO"
         app:layout_constraintTop_toBottomOf="@+id/sebzeCHO" />
 
@@ -252,9 +302,12 @@
         android:id="@+id/yagCHO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="-"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/yagPRO"
         app:layout_constraintTop_toBottomOf="@+id/meyveCHO" />
 
@@ -262,9 +315,12 @@
         android:id="@+id/eygCHO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="15"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/eygPRO"
         app:layout_constraintTop_toBottomOf="@+id/etCHO" />
 
@@ -272,9 +328,12 @@
         android:id="@+id/sebzeCHO"
         android:layout_width="38dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="6"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/sebzePRO"
         app:layout_constraintTop_toBottomOf="@+id/eygCHO" />
 
@@ -286,6 +345,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="SÜT"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimSut"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBosKose" />
@@ -295,9 +357,12 @@
         android:layout_width="87dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="ET"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimEt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSüt" />
@@ -307,9 +372,12 @@
         android:layout_width="87dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="EYG"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimEYG"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEt" />
@@ -319,9 +387,12 @@
         android:layout_width="87dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="SEBZE"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimSebze"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEYG" />
@@ -331,9 +402,12 @@
         android:layout_width="87dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="MEYVE"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimMeyve"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSebze" />
@@ -343,9 +417,12 @@
         android:layout_width="87dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="YAĞ"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimYag"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMeyve" />
@@ -355,24 +432,15 @@
         android:layout_width="87dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="BAKLAGİL"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/degisimBaklagil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textYag" />
-
-    <TextView
-        android:id="@+id/textToplam"
-        android:layout_width="87dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/textKalori"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBaklagil" />
 
     <EditText
         android:id="@+id/degisimSut"
@@ -391,7 +459,7 @@
         android:id="@+id/degisimEt"
         android:layout_width="87dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:inputType="number"
@@ -404,7 +472,7 @@
         android:id="@+id/degisimEYG"
         android:layout_width="87dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:inputType="number"
@@ -417,7 +485,7 @@
         android:id="@+id/degisimSebze"
         android:layout_width="87dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:inputType="number"
@@ -430,7 +498,7 @@
         android:id="@+id/degisimMeyve"
         android:layout_width="87dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:inputType="number"
@@ -443,7 +511,7 @@
         android:id="@+id/degisimYag"
         android:layout_width="87dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:inputType="number"
@@ -456,7 +524,7 @@
         android:id="@+id/degisimBaklagil"
         android:layout_width="87dp"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:inputType="number"
@@ -465,34 +533,60 @@
         app:layout_constraintEnd_toStartOf="@+id/baklagilCHO"
         app:layout_constraintTop_toBottomOf="@+id/degisimYag" />
 
-    <TextView
-        android:id="@+id/sütCHO"
-        android:layout_width="38dp"
-        android:layout_height="34dp"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
-        android:text="9"
-        app:layout_constraintBottom_toTopOf="@+id/etCHO"
-        app:layout_constraintEnd_toStartOf="@+id/sütPRO"
-        app:layout_constraintTop_toBottomOf="@+id/textChoProYag" />
+        app:adSize="SMART_BANNER"
+        app:adUnitId="@string/banner_ad_unit_id"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTemizle">
 
-    <TextView
-        android:id="@+id/etCHO"
-        android:layout_width="38dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
+    </com.google.android.gms.ads.AdView>
+
+    <Button
+        android:id="@+id/buttonHesapla"
+        android:layout_width="94dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="180dp"
+        android:text="HESAPLA"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/degisimBaklagil" />
+
+    <Button
+        android:id="@+id/buttonTemizle"
+        android:layout_width="90dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="-"
-        app:layout_constraintEnd_toStartOf="@+id/etPRO"
-        app:layout_constraintTop_toBottomOf="@+id/sütCHO" />
+        android:text="TEMİZLE"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHesapla"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBaklagil" />
 
-    <FrameLayout
-        android:layout_width="385dp"
-        android:layout_height="510dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+    <EditText
+        android:id="@+id/toplamText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:textSize="12sp"
+        android:textStyle="bold"/>
 
-    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
