@@ -1,4 +1,4 @@
-package com.example.diapp;
+package com.grapesoft.diapp;
 
 import org.junit.Test;
 

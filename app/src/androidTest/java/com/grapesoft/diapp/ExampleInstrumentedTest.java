@@ -1,4 +1,4 @@
-package com.example.diapp;
+package com.grapesoft.diapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

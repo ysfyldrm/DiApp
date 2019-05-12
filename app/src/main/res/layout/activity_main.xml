@@ -543,7 +543,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:adSize="SMART_BANNER"
-        app:adUnitId="@string/banner_ad_unit_id"
+        app:adUnitId="ca-app-pub-3547428000724022/4282390284"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

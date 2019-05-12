@@ -1,4 +1,4 @@
-package com.example.diapp;
+package com.grapesoft.diapp;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
         degisimMeyveText.setText("");
         degisimYagText.setText("");
         degisimBaklagilText.setText("");
-
-        btnHesapla.setEnabled(true);
     }
+
 public Button btnHesapla,btnTemizle;
 public EditText degisimSütText,toplamTextv,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
 public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv,textSüt,textEt,textEYG,textSebze,textMeyve,textYag,textBaklagil;
-private AdView mAdView;
+       AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +40,10 @@ private AdView mAdView;
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        AdView mAdView = new AdView(this);
+        mAdView = new AdView(this);
         mAdView.setAdSize(AdSize.SMART_BANNER);
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("8BA52F568BA95A6FD976D14C39F73AA7").build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         btnHesapla = (Button) findViewById(R.id.buttonHesapla);
@@ -64,7 +64,7 @@ private AdView mAdView;
                         builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int which) {
-                                btnHesapla.setEnabled(false);
+                                btnHesapla.setEnabled(true);
                             }
                         });
                         builder.show();
