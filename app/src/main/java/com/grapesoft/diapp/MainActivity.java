@@ -14,11 +14,18 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
+import java.text.DecimalFormat;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private InterstitialAd mInterstitialAd;
+
     public void Clear(){
+
         degisimSütText.setText("");
         degisimEtText.setText("");
         degisimEygText.setText("");
@@ -26,19 +33,30 @@ public class MainActivity extends AppCompatActivity {
         degisimMeyveText.setText("");
         degisimYagText.setText("");
         degisimBaklagilText.setText("");
+
+        btnHesapla.setEnabled(true);
     }
 
 public Button btnHesapla,btnTemizle;
-public EditText degisimSütText,toplamTextv,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
+public EditText yuzdeCHOv,yuzdePROv,yuzdeYAGv,degisimSütText,toplamTextv,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
 public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv,textSüt,textEt,textEYG,textSebze,textMeyve,textYag,textBaklagil;
-       AdView mAdView;
+       AdView mAdView,mAdView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3547428000724022/2775631255");
+        AdRequest request = new AdRequest.Builder().build();
+        mInterstitialAd.loadAd(request);
+
+        AdRequest topAdRequest = new AdRequest.Builder().build();
+        mAdView2 = new AdView(this);
+        mAdView2 = findViewById(R.id.adView2);
+        mAdView2.loadAd(topAdRequest);
 
         mAdView = new AdView(this);
         mAdView.setAdSize(AdSize.SMART_BANNER);
@@ -56,15 +74,15 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-
                         builder.setCancelable(true);
                         builder.setTitle("HESAPLAMA SONUÇLARI");
                         builder.setMessage(toplamTextv.getText());
+                        btnHesapla.setEnabled(false);
 
                         builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int which) {
-                                btnHesapla.setEnabled(true);
+
                             }
                         });
                         builder.show();
@@ -76,7 +94,11 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         btnTemizle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    if (mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
                 Clear();
+
             }
         });
 
@@ -88,6 +110,9 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         degisimYagText      =(EditText) findViewById(R.id.degisimYag);
         degisimBaklagilText =(EditText) findViewById(R.id.degisimBaklagil);
         toplamTextv         =(EditText) findViewById(R.id.toplamText);
+        yuzdeCHOv           =(EditText) findViewById(R.id.yuzdeCHO);
+        yuzdePROv           =(EditText) findViewById(R.id.yuzdePRO);
+        yuzdeYAGv           =(EditText) findViewById(R.id.yuzdeYAG);
 
         sutCHOv =(TextView) findViewById(R.id.sütCHO);
         sutProv =(TextView) findViewById(R.id.sütPRO);
@@ -147,15 +172,19 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
                                 final int bklCHOtop = Integer.parseInt(baklagilCHOv.getText().toString());
                                 final int bklPROtop = Integer.parseInt(baklagilProv.getText().toString());
 
-                                final int topCHO = sutCHOtop + eygCHOtop + sbzCHOtop + myvCHOtop + bklCHOtop;
-                                final int topPRO = sutPROtop + etPROtop + eygPROtop + sbzPROtop + bklPROtop;
-                                final int topYAG = sutYAGtop + etYAGtop + yagYAGtop;
+                                final int topCHO = 4*(sutCHOtop + eygCHOtop + sbzCHOtop + myvCHOtop + bklCHOtop);
+                                final int topPRO = 4*(sutPROtop + etPROtop + eygPROtop + sbzPROtop + bklPROtop);
+                                final int topYAG = 9*(sutYAGtop + etYAGtop + yagYAGtop);
+                                final double topTOPLAM = topCHO + topPRO + topYAG;
 
-                                final int topTOPLAM = topCHO + topPRO + topYAG;
+                                DecimalFormat df = new DecimalFormat("#.##");
+                                yuzdeCHOv.setText(" % " + df.format((topCHO/topTOPLAM)*100));
+                                yuzdePROv.setText(" % " + df.format((topPRO/topTOPLAM)*100));
+                                yuzdeYAGv.setText(" % " + df.format((topYAG/topTOPLAM)*100));
 
-                                toplamTextv.setText("KARBONHİDRAT = " + topCHO + " kcal" + "\n" + "\n" +
-                                        "PROTEİN = " + topPRO + " kcal" + "\n" + "\n" +
-                                        "YAĞ = " + topYAG + " kcal" + "\n" + "\n" +
+                                toplamTextv.setText("KARBONHİDRAT = " + topCHO + " kcal  " + yuzdeCHOv.getText() +"\n" + "\n" +
+                                        "PROTEİN = " + topPRO + " kcal  " + yuzdePROv.getText() + "\n" + "\n" +
+                                        "YAĞ = " + topYAG + " kcal  " + yuzdeYAGv.getText() + "\n" + "\n" +
                                         "TOPLAM KALORİ = " + topTOPLAM + " kcal");
                             }
                         });
