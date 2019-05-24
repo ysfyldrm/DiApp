@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:addStatesFromChildren="false"
+    android:background="@color/LightGray"
     android:theme="?android:attr/actionBarTheme"
     tools:context=".MainActivity">
 
@@ -615,7 +616,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-3547428000724022/4282390284"
+        app:adUnitId="ca-app-pub-3547428000724022/4001060935"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -702,7 +703,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-3547428000724022/1462140464"
+        app:adUnitId="ca-app-pub-3547428000724022/9500799627"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

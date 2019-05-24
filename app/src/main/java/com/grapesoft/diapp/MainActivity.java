@@ -1,5 +1,6 @@
 package com.grapesoft.diapp;
 
+
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,12 +16,15 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.text.DecimalFormat;
 
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private int countHesapla = 0;
 
     private InterstitialAd mInterstitialAd;
 
@@ -34,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         degisimYagText.setText("");
         degisimBaklagilText.setText("");
 
-        btnHesapla.setEnabled(true);
     }
 
 public Button btnHesapla,btnTemizle;
@@ -48,59 +51,27 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         setContentView(R.layout.activity_main);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        MobileAds.initialize(this, "ca-app-pub-3547428000724022~5187056659");
+
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3547428000724022/2775631255");
-        AdRequest request = new AdRequest.Builder().build();
+        mInterstitialAd.setAdUnitId("ca-app-pub-3547428000724022/5122570911");
+        final AdRequest request = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         mInterstitialAd.loadAd(request);
 
-        AdRequest topAdRequest = new AdRequest.Builder().build();
         mAdView2 = new AdView(this);
         mAdView2 = findViewById(R.id.adView2);
+        AdRequest topAdRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         mAdView2.loadAd(topAdRequest);
 
         mAdView = new AdView(this);
         mAdView.setAdSize(AdSize.SMART_BANNER);
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         mAdView.loadAd(adRequest);
+
 
         btnHesapla = (Button) findViewById(R.id.buttonHesapla);
         btnTemizle = (Button) findViewById(R.id.buttonTemizle);
-
-        btnHesapla.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-                        builder.setCancelable(true);
-                        builder.setTitle("HESAPLAMA SONUÇLARI");
-                        builder.setMessage(toplamTextv.getText());
-                        btnHesapla.setEnabled(false);
-
-                        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int which) {
-
-                            }
-                        });
-                        builder.show();
-                }
-
-            }
-        );
-
-        btnTemizle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if (mInterstitialAd.isLoaded()){
-                        mInterstitialAd.show();
-                    }
-                Clear();
-
-            }
-        });
 
         degisimSütText      =(EditText) findViewById(R.id.degisimSut);
         degisimEtText       =(EditText) findViewById(R.id.degisimEt);
@@ -142,6 +113,43 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         baklagilProv =(TextView) findViewById(R.id.baklagilPRO);
         baklagilYagv =(TextView) findViewById(R.id.baklagilYAG);
 
+        btnHesapla.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View view){
+                                              if (countHesapla==3){
+                                                  if (mInterstitialAd.isLoaded()){
+                                                      mInterstitialAd.show();
+                                                      countHesapla = 0;
+                                                  }
+                                              }
+                                              else{
+                                                  countHesapla ++;
+                                              }
+
+                                              AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                                              builder.setCancelable(true);
+                                              builder.setTitle("HESAPLAMA SONUÇLARI");
+                                              builder.setMessage(toplamTextv.getText());
+
+                                              builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(DialogInterface dialogInterface, int which) {
+
+                                                  }
+                                              });
+                                              builder.show();
+                                          }
+                                      }
+        );
+
+        btnTemizle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Clear();
+            }
+        });
 
         Thread t=new Thread(){
 
@@ -198,9 +206,6 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         };
 
         t.start();
-
-
-
 
         degisimSütText.addTextChangedListener(new TextWatcher() {
             @Override
