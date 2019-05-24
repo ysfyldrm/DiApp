@@ -2,11 +2,14 @@ package com.grapesoft.diapp;
 
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -27,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private int countHesapla = 0;
 
     private InterstitialAd mInterstitialAd;
+
+    public void startWritePage(){
+        Intent intent = new Intent(MainActivity.this,WriteActivity.class);
+        intent.putExtra("degerler",toplamTextv.getText().toString());
+        startActivity(intent);
+    }
 
     public void Clear(){
 
@@ -113,9 +122,11 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         baklagilProv =(TextView) findViewById(R.id.baklagilPRO);
         baklagilYagv =(TextView) findViewById(R.id.baklagilYAG);
 
+
+
         btnHesapla.setOnClickListener(new View.OnClickListener() {
                                           @Override
-                                          public void onClick(View view){
+                                          public void onClick(final View view){
                                               if (countHesapla==3){
                                                   if (mInterstitialAd.isLoaded()){
                                                       mInterstitialAd.show();
@@ -132,12 +143,19 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
                                               builder.setTitle("HESAPLAMA SONUÇLARI");
                                               builder.setMessage(toplamTextv.getText());
 
-                                              builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                                              builder.setNegativeButton("DİYET YAZ", new DialogInterface.OnClickListener() {
                                                   @Override
                                                   public void onClick(DialogInterface dialogInterface, int which) {
+                                                      startWritePage();
+                                                  }
+                                              });
+                                              builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(DialogInterface dialog, int which) {
 
                                                   }
                                               });
+
                                               builder.show();
                                           }
                                       }
@@ -194,6 +212,8 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
                                         "PROTEİN = " + topPRO + " kcal  " + yuzdePROv.getText() + "\n" + "\n" +
                                         "YAĞ = " + topYAG + " kcal  " + yuzdeYAGv.getText() + "\n" + "\n" +
                                         "TOPLAM KALORİ = " + topTOPLAM + " kcal");
+
+
                             }
                         });
 
@@ -206,6 +226,7 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         };
 
         t.start();
+
 
         degisimSütText.addTextChangedListener(new TextWatcher() {
             @Override
