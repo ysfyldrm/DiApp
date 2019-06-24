@@ -100,9 +100,7 @@ public class WriteActivity extends AppCompatActivity {
                 sb.append(Diyet).append("\n");
             }
             Sabah.setText(sb.toString());
-            .
-            .
-            .
+
 
 
         } catch (FileNotFoundException e) {
