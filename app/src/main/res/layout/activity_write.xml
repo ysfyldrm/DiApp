@@ -7,8 +7,34 @@
     android:background="#D5ECFA"
     tools:context=".WriteActivity">
 
+    <Button
+        android:id="@+id/btnWP"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="44dp"
+        android:background="#FFD180"
+        android:onClick="onClickWhatsApp"
+        android:text="WhatsApp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack2" />
+
+    <Button
+        android:id="@+id/btnBack2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FFD180"
+        android:text="Geri Dön"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnKaydet" />
+
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/EditAksamA"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -18,7 +44,7 @@
         android:inputType="textMultiLine"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/EditAksam" />
 
     <TextView
         android:id="@+id/textHesaplamaSonuc"
@@ -46,7 +72,7 @@
         android:textAlignment="textEnd"
         android:textColor="#050000"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
+        app:layout_constraintEnd_toStartOf="@+id/EditSabahA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textHesaplamaSonuc" />
 
@@ -61,13 +87,13 @@
         android:textAlignment="textEnd"
         android:textColor="#050000"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
+        app:layout_constraintEnd_toStartOf="@+id/EditSabahA"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/EditSabah" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/EditSabahA"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -77,10 +103,10 @@
         android:inputType="textMultiLine"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/EditSabah" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/EditSabah"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -93,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textHesaplamaSonuc" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/EditAksam"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -103,10 +129,10 @@
         android:inputType="textMultiLine"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
+        app:layout_constraintTop_toBottomOf="@+id/EditOglenA" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/EditOglenA"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -116,10 +142,10 @@
         android:inputType="textMultiLine"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/EditO" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/EditO"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -129,7 +155,7 @@
         android:inputType="textMultiLine"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/EditSabahA" />
 
     <TextView
         android:id="@+id/txtAksam"
@@ -142,9 +168,9 @@
         android:textAlignment="textEnd"
         android:textColor="#050000"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/editText7"
+        app:layout_constraintEnd_toStartOf="@+id/EditAksam"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
+        app:layout_constraintTop_toBottomOf="@+id/EditOglenA" />
 
     <TextView
         android:id="@+id/txtAksamAra"
@@ -157,9 +183,9 @@
         android:textAlignment="textEnd"
         android:textColor="#050000"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/editText10"
+        app:layout_constraintEnd_toStartOf="@+id/EditAksamA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/EditAksam" />
 
     <TextView
         android:id="@+id/txtOglenAra"
@@ -172,9 +198,9 @@
         android:textAlignment="textEnd"
         android:textColor="#050000"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/editText9"
+        app:layout_constraintEnd_toStartOf="@+id/EditOglenA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/EditO" />
 
     <TextView
         android:id="@+id/txtOglen"
@@ -187,47 +213,22 @@
         android:textAlignment="textEnd"
         android:textColor="#050000"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/editText7"
+        app:layout_constraintEnd_toStartOf="@+id/EditAksam"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="390dp"
-        android:layout_height="714dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/EditSabahA" />
 
     <Button
-        android:id="@+id/btnSS"
+        android:id="@+id/btnKaydet"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#82B1FF"
-        android:text="Ekran Görüntüsü Al"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="52dp"
         android:background="#FFD180"
-        android:text="Geri Dön"
+        android:onClick="save"
+        android:text="Kaydet"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSS" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditAksamA" />
 
 </android.support.constraint.ConstraintLayout>
