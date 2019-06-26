@@ -17,4 +17,15 @@
     <color name="Gray">#414141</color>
     <color name="Ten">#DEBFA5</color>
     <color name="LightGray">#C4C4C4</color>
+
+
+
+    <color name="TGri">#DDDFD4</color>
+    <color name="TMavi">#3FB0AC</color>
+    <color name="TKoyuMavi">#173E43</color>
+    <color name="White">#ffffff</color>
+    <color name="TLgri">#B9C4C6</color>
+
+
+
 </resources>
