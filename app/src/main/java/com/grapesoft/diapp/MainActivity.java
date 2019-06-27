@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -24,6 +25,8 @@ import java.text.DecimalFormat;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    ImageView backButton;
 
     private int countHesapla = 0;
 
@@ -56,7 +59,7 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        /*getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         MobileAds.initialize(this, "ca-app-pub-3547428000724022~5187056659");
 
@@ -75,7 +78,7 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         mAdView.loadAd(adRequest);
-
+*/
 
         btnHesapla = (Button) findViewById(R.id.buttonHesapla);
         btnTemizle = (Button) findViewById(R.id.buttonTemizle);
@@ -119,6 +122,14 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         baklagilCHOv =(TextView) findViewById(R.id.baklagilCHO);
         baklagilProv =(TextView) findViewById(R.id.baklagilPRO);
         baklagilYagv =(TextView) findViewById(R.id.baklagilYAG);
+
+        backButton=findViewById(R.id.imageView3);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
 
