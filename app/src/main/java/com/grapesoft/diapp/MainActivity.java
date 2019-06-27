@@ -27,7 +27,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
     ImageView backButton;
-
+    ImageView showProfile;
     private int countHesapla = 0;
 
     private InterstitialAd mInterstitialAd;
@@ -127,6 +127,17 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                finish();
+            }
+        });
+
+        showProfile=findViewById(R.id.userProf);
+        showProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,ProfileActivity.class);
+                startActivity(i);
                 finish();
             }
         });

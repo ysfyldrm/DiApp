@@ -514,7 +514,7 @@
         android:layout_width="46dp"
         android:layout_height="31dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="17dp"
         android:fontFamily="@font/light"
         android:text="6"
         android:textAlignment="center"
@@ -738,9 +738,9 @@
     <EditText
         android:id="@+id/degisimSut"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:fontFamily="@font/light"
         android:inputType="number"
@@ -752,9 +752,9 @@
     <EditText
         android:id="@+id/degisimEt"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:fontFamily="@font/light"
         android:inputType="number"
@@ -766,9 +766,8 @@
     <EditText
         android:id="@+id/degisimEYG"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
         android:ems="10"
         android:fontFamily="@font/light"
         android:inputType="number"
@@ -780,9 +779,9 @@
     <EditText
         android:id="@+id/degisimSebze"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:fontFamily="@font/light"
         android:inputType="number"
@@ -794,9 +793,9 @@
     <EditText
         android:id="@+id/degisimMeyve"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:fontFamily="@font/light"
         android:inputType="number"
@@ -808,7 +807,7 @@
     <EditText
         android:id="@+id/degisimYag"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
         android:ems="10"
@@ -822,9 +821,9 @@
     <EditText
         android:id="@+id/degisimBaklagil"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:fontFamily="@font/light"
@@ -871,7 +870,7 @@
         android:id="@+id/toplamText"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text=""
+        android:text="asdasdasdasd"
         android:textSize="12sp"
         android:textStyle="bold" />
 
@@ -919,8 +918,22 @@
         app:layout_constraintStart_toStartOf="@+id/satir1"
         app:layout_constraintTop_toBottomOf="@+id/textBosKose" />
 
-
-
+    <ImageView
+        android:id="@+id/userProf"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:tint="@color/TKoyuMavi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        app:srcCompat="@drawable/round_people_outline_black_48" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

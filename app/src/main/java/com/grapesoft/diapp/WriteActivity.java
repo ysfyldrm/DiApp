@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class WriteActivity extends AppCompatActivity {
     public TextView txtSonuclar;
     EditText Sabah, SabahAra, Oglen, OglenAra, Aksam, AksamAra;
     String DiyetText;
-
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +43,15 @@ public class WriteActivity extends AppCompatActivity {
         String Sonuclar = i.getStringExtra("degerler");
         txtSonuclar.setText(Sonuclar);
 
-        Button buttonBack = (Button) findViewById(R.id.btnBack2);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+
+        backButton=findViewById(R.id.imageView6);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
+                /* finish();*/
             }
         });
 
