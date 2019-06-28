@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "710854934326",
+    "firebase_url": "https://diapp-baef9.firebaseio.com",
+    "project_id": "diapp-baef9",
+    "storage_bucket": "diapp-baef9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710854934326:android:c1cee581b5586d91",
+        "android_client_info": {
+          "package_name": "com.grapesoft.diapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710854934326-9f3ln9gulg7bfgkqt3gelrcoae6mbv65.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grapesoft.diapp",
+            "certificate_hash": "326974be7e78b860da3c292c7a5e448a22443467"
+          }
+        },
+        {
+          "client_id": "710854934326-dmdpc53tj9503bm48n9nsara631ou2u6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfh_tAT96wrFSgh-AhgBYDhfDWWnYrZgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710854934326-dmdpc53tj9503bm48n9nsara631ou2u6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
