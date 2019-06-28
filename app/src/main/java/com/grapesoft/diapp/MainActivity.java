@@ -3,22 +3,20 @@ package com.grapesoft.diapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 
 import java.text.DecimalFormat;
 
@@ -35,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void startWritePage(){
         Intent intent = new Intent(MainActivity.this,WriteActivity.class);
         intent.putExtra("degerler",toplamTextv.getText().toString());
+        intent.putExtra("istenilendeger", degerler);
         startActivity(intent);
     }
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         degisimBaklagilText.setText("");
 
     }
-
+public String degerler;
 public Button btnHesapla,btnTemizle;
 public EditText yuzdeCHOv,yuzdePROv,yuzdeYAGv,degisimSütText,toplamTextv,degisimEtText,degisimEygText,degisimSebzeText,degisimMeyveText,degisimYagText,degisimBaklagilText;
 public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eygYagv,sebzeCHOv,sebzeProv,sebzeYagv,meyveCHOv,meyveProv,meyveYagv,yagCHOv,yagProv,yagYagv,baklagilCHOv,baklagilProv,baklagilYagv,textSüt,textEt,textEYG,textSebze,textMeyve,textYag,textBaklagil;
@@ -80,48 +79,48 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         mAdView.loadAd(adRequest);
 */
 
-        btnHesapla = (Button) findViewById(R.id.buttonHesapla);
-        btnTemizle = (Button) findViewById(R.id.buttonTemizle);
+        btnHesapla = findViewById(R.id.buttonHesapla);
+        btnTemizle = findViewById(R.id.buttonTemizle);
 
-        degisimSütText      =(EditText) findViewById(R.id.degisimSut);
-        degisimEtText       =(EditText) findViewById(R.id.degisimEt);
-        degisimEygText      =(EditText) findViewById(R.id.degisimEYG);
-        degisimSebzeText    =(EditText) findViewById(R.id.degisimSebze);
-        degisimMeyveText    =(EditText) findViewById(R.id.degisimMeyve);
-        degisimYagText      =(EditText) findViewById(R.id.degisimYag);
-        degisimBaklagilText =(EditText) findViewById(R.id.degisimBaklagil);
-        toplamTextv         =(EditText) findViewById(R.id.toplamText);
-        yuzdeCHOv           =(EditText) findViewById(R.id.yuzdeCHO);
-        yuzdePROv           =(EditText) findViewById(R.id.yuzdePRO);
-        yuzdeYAGv           =(EditText) findViewById(R.id.yuzdeYAG);
+        degisimSütText      = findViewById(R.id.degisimSut);
+        degisimEtText       = findViewById(R.id.degisimEt);
+        degisimEygText      = findViewById(R.id.degisimEYG);
+        degisimSebzeText    = findViewById(R.id.degisimSebze);
+        degisimMeyveText    = findViewById(R.id.degisimMeyve);
+        degisimYagText      = findViewById(R.id.degisimYag);
+        degisimBaklagilText = findViewById(R.id.degisimBaklagil);
+        toplamTextv         = findViewById(R.id.toplamText);
+        yuzdeCHOv           = findViewById(R.id.yuzdeCHO);
+        yuzdePROv           = findViewById(R.id.yuzdePRO);
+        yuzdeYAGv           = findViewById(R.id.yuzdeYAG);
 
-        sutCHOv =(TextView) findViewById(R.id.sütCHO);
-        sutProv =(TextView) findViewById(R.id.sütPRO);
-        sutYagv =(TextView) findViewById(R.id.sütYAG);
+        sutCHOv = findViewById(R.id.sütCHO);
+        sutProv = findViewById(R.id.sütPRO);
+        sutYagv = findViewById(R.id.sütYAG);
 
-        etCHOv =(TextView) findViewById(R.id.etCHO);
-        etProv =(TextView) findViewById(R.id.etPRO);
-        etYagv =(TextView) findViewById(R.id.etYAG);
+        etCHOv = findViewById(R.id.etCHO);
+        etProv = findViewById(R.id.etPRO);
+        etYagv = findViewById(R.id.etYAG);
 
-        eygCHOv =(TextView) findViewById(R.id.eygCHO);
-        eygProv =(TextView) findViewById(R.id.eygPRO);
-        eygYagv =(TextView) findViewById(R.id.eygYAG);
+        eygCHOv = findViewById(R.id.eygCHO);
+        eygProv = findViewById(R.id.eygPRO);
+        eygYagv = findViewById(R.id.eygYAG);
 
-        sebzeCHOv =(TextView) findViewById(R.id.sebzeCHO);
-        sebzeProv =(TextView) findViewById(R.id.sebzePRO);
-        sebzeYagv =(TextView) findViewById(R.id.sebzeYAG);
+        sebzeCHOv = findViewById(R.id.sebzeCHO);
+        sebzeProv = findViewById(R.id.sebzePRO);
+        sebzeYagv = findViewById(R.id.sebzeYAG);
 
-        meyveCHOv =(TextView) findViewById(R.id.meyveCHO);
-        meyveProv =(TextView) findViewById(R.id.meyvePRO);
-        meyveYagv =(TextView) findViewById(R.id.meyveYAG);
+        meyveCHOv = findViewById(R.id.meyveCHO);
+        meyveProv = findViewById(R.id.meyvePRO);
+        meyveYagv = findViewById(R.id.meyveYAG);
 
-        yagCHOv =(TextView) findViewById(R.id.yagCHO);
-        yagProv =(TextView) findViewById(R.id.yagPRO);
-        yagYagv =(TextView) findViewById(R.id.yagYAG);
+        yagCHOv = findViewById(R.id.yagCHO);
+        yagProv = findViewById(R.id.yagPRO);
+        yagYagv = findViewById(R.id.yagYAG);
 
-        baklagilCHOv =(TextView) findViewById(R.id.baklagilCHO);
-        baklagilProv =(TextView) findViewById(R.id.baklagilPRO);
-        baklagilYagv =(TextView) findViewById(R.id.baklagilYAG);
+        baklagilCHOv = findViewById(R.id.baklagilCHO);
+        baklagilProv = findViewById(R.id.baklagilPRO);
+        baklagilYagv = findViewById(R.id.baklagilYAG);
 
         backButton=findViewById(R.id.imageView3);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +157,7 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
                                               }
 
                                               AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                              degerler= degisimEtText.getText()+"-" +degisimSütText.getText()+ "-"+degisimYagText.getText()+ "-"+degisimEygText.getText()+ "-"+degisimSebzeText.getText()+ "-"+degisimMeyveText.getText() + "-"+degisimBaklagilText.getText();
 
                                               builder.setCancelable(true);
                                               builder.setTitle("HESAPLAMA SONUÇLARI");
@@ -228,11 +228,11 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
                                 yuzdePROv.setText(" % " + df.format((topPRO/topTOPLAM)*100));
                                 yuzdeYAGv.setText(" % " + df.format((topYAG/topTOPLAM)*100));
 
-                                toplamTextv.setText("KARBONHİDRAT = " + topCHO + " kcal  " + yuzdeCHOv.getText() +"\n" + "\n" +
-                                        "PROTEİN = " + topPRO + " kcal  " + yuzdePROv.getText() + "\n" + "\n" +
-                                        "YAĞ = " + topYAG + " kcal  " + yuzdeYAGv.getText() + "\n" + "\n" +
-                                        "TOPLAM KALORİ = " + topTOPLAM + " kcal");
-
+                                toplamTextv.setText(
+                                        "KARBONHİDRAT  = " + topCHO + " kcal  " + yuzdeCHOv.getText() + "\n" +
+                                        "PROTEİN                  = " + topPRO + " kcal  " + yuzdePROv.getText() + "\n" +
+                                        "YAĞ                            = " + topYAG + " kcal  " + yuzdeYAGv.getText() + "\n" +
+                                        "TOPLAM KALORİ  = " + topTOPLAM + " kcal");
 
                             }
                         });
@@ -246,7 +246,6 @@ public TextView sutCHOv,sutProv,sutYagv,etCHOv,etProv,etYagv,eygCHOv,eygProv,eyg
         };
 
         t.start();
-
 
         degisimSütText.addTextChangedListener(new TextWatcher() {
             @Override

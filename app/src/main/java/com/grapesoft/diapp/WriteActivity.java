@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -27,6 +27,8 @@ public class WriteActivity extends AppCompatActivity {
     EditText Sabah, SabahAra, Oglen, OglenAra, Aksam, AksamAra;
     String DiyetText;
     ImageView backButton;
+    String Et,Süt,Yag,EYG,Sebze,Meyve,Baklagil;
+    TextView textViewIstenilen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +42,23 @@ public class WriteActivity extends AppCompatActivity {
         Aksam = findViewById(R.id.EditAksam);
         AksamAra = findViewById(R.id.EditAksamA);
 
-
-        txtSonuclar = (TextView) findViewById(R.id.textHesaplamaSonuc);
+        textViewIstenilen=findViewById(R.id.textView3);
+        txtSonuclar = findViewById(R.id.textHesaplamaSonuc);
         Intent i = getIntent();
         String Sonuclar = i.getStringExtra("degerler");
+        String IstenilenSonuclar=i.getStringExtra("istenilendeger");
         txtSonuclar.setText(Sonuclar);
 
+        String [] arrayIstDeg = IstenilenSonuclar.split("-");
+        Et="Et: "+arrayIstDeg[0]+" ";
+        Süt="Süt: "+arrayIstDeg[1]+" ";
+        Yag="Yağ: "+arrayIstDeg[2]+" ";
+        EYG="E.Y.G: "+arrayIstDeg[3]+" ";
+        Sebze="Sebze: "+arrayIstDeg[4]+" ";
+        Meyve="Meyve: "+arrayIstDeg[5]+" ";
+        Baklagil="Baklagil: "+arrayIstDeg[6]+" ";
 
+        textViewIstenilen.setText(Et+Süt+Yag+EYG+Sebze+Meyve+Baklagil);
 
         backButton=findViewById(R.id.imageView6);
         backButton.setOnClickListener(new View.OnClickListener() {
