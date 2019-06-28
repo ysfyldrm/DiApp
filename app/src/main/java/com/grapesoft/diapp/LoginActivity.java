@@ -1,8 +1,5 @@
 package com.grapesoft.diapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +8,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
     //Change UI according to user data.
     private void  updateUI(FirebaseUser account){
         if(account != null){
-            Toast.makeText(this,"Başarıyla Giriş Yatınız!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Başarıyla Giriş Yaptınız!",Toast.LENGTH_LONG).show();
             startActivity(new Intent(this,MainActivity.class));
         }else {
             Toast.makeText(this,"Giriş Yapmanız Gerekmekte.",Toast.LENGTH_LONG).show();
