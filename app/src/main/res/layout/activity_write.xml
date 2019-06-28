@@ -56,10 +56,28 @@
         android:text="WhatsApp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toEndOf="@+id/btnKaydet"
         app:layout_constraintTop_toBottomOf="@+id/satir111"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.042" />
+
+    <Button
+        android:id="@+id/btnLoad"
+        android:layout_width="154dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/acikmavibutton"
+        android:onClick="load"
+        android:text="Load"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnKaydet"
+        app:layout_constraintVertical_bias="0.084" />
 
     <TextView
         android:id="@+id/satir111"

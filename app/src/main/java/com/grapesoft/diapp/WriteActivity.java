@@ -12,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class WriteActivity extends AppCompatActivity {
@@ -89,7 +92,7 @@ public class WriteActivity extends AppCompatActivity {
 
     }
 
-    /*public void load(View v) {
+    public void load(View v) {
         FileInputStream fis = null;
         try {
             fis = openFileInput(FILE_NAME);
@@ -100,9 +103,13 @@ public class WriteActivity extends AppCompatActivity {
             while ((Diyet = br.readLine()) != null) {
                 sb.append(Diyet).append("\n");
             }
-            Sabah.setText(sb.toString());
-
-
+            String [] arrOfStr = sb.toString().split("\n");
+            Sabah.setText(arrOfStr[0].replaceFirst("Sabah: ",""));
+            SabahAra.setText(arrOfStr[1].replaceFirst("Ara: ",""));
+            Oglen.setText(arrOfStr[2].replaceFirst("Öğlen: ",""));
+            OglenAra.setText(arrOfStr[3].replaceFirst("Ara: ",""));
+            Aksam.setText(arrOfStr[4].replaceFirst("Aksam: ",""));
+            AksamAra.setText(arrOfStr[5].replaceFirst("Ara: ",""));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -117,7 +124,7 @@ public class WriteActivity extends AppCompatActivity {
                 }
             }
         }
-    }*/
+    }
 
     public void onClickWhatsApp(View view) {
 
@@ -126,15 +133,19 @@ public class WriteActivity extends AppCompatActivity {
 
             Intent waIntent = new Intent(Intent.ACTION_SEND);
             waIntent.setType("text/plain");
-            String text1 = DiyetText;
+            String WpMesaj="Sabah: " + Sabah.getText().toString() + '\n' + "Ara: " + SabahAra.getText().toString() + '\n' + "Öğlen: " + Oglen.getText().toString() + '\n' + "Ara: " + OglenAra.getText().toString() +
+                    '\n' + "Aksam: " + Aksam.getText().toString() + '\n' + "Ara: " + AksamAra.getText().toString();
 
+            if (Sabah.getText().toString().isEmpty() &&SabahAra.getText().toString().isEmpty()&&Oglen.getText().toString().isEmpty()  &&OglenAra.getText().toString().isEmpty()  &&Aksam.getText().toString().isEmpty()  &&AksamAra.getText().toString().isEmpty())
+                Toast.makeText(this, "Lütfen veri giriniz", Toast.LENGTH_LONG).show();
+            else{
             PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
             //Check if package exists or not. If not then code
             //in catch block will be called
             waIntent.setPackage("com.whatsapp");
 
-            waIntent.putExtra(Intent.EXTRA_TEXT, DiyetText);
-            startActivity(Intent.createChooser(waIntent, "Share with"));
+            waIntent.putExtra(Intent.EXTRA_TEXT, WpMesaj);
+            startActivity(Intent.createChooser(waIntent, "Share with"));}
 
         } catch (PackageManager.NameNotFoundException e) {
             Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
